@@ -1,0 +1,33 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <include file="example.xml"/>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="" class="action.DisplayStudentAction">
+            <result name="success">display-student.jsp</result>                        
+        </action>
+        <action name="add-new" class="action.AddNewStudentAction">
+            <result name="input">/new-student.jsp</result>
+            <result name="success" type="redirect">/show-student.action</result>
+        </action>        
+        <action name="show-student" class="action.DisplayStudentAction">
+            <result name="success">/display-student.jsp</result>
+        </action>           
+        <action name="updateForm" class="action.UpdateStudentAction" method="goUpdate">
+            <result name="success">/update-student.jsp</result>
+        </action>
+        
+        <action name="update"  class="action.UpdateStudentAction">
+            
+            <result name="input">/update-student.jsp</result>
+            <result name="success" type="redirect">""</result>
+        </action>
+                
+        <action name="delete" class="action.DeleteStudentAction">
+            <result name="success" type="redirect">""</result>
+        </action>    
+    </package>
+</struts>
